@@ -3,11 +3,9 @@ package es.geeksusma.api.contact;
 import es.geeksusma.domain.contact.Contact;
 import es.geeksusma.domain.contact.Name;
 import es.geeksusma.domain.contact.Phone;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ContactToDTOMapperTest {
 
