@@ -9,10 +9,6 @@ public class PageRequest {
     public PageRequest() {
     }
 
-    public PageRequest(Integer page, Integer offset) {
-        this.page = page;
-        this.offset = offset;
-    }
 
     public Integer getPage() {
         return page;
@@ -20,5 +16,13 @@ public class PageRequest {
 
     public Integer getOffset() {
         return offset;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public void setOffset(Integer offset) {
+        this.offset = offset;
     }
 }
