@@ -112,6 +112,14 @@ class NoDatabaseContactRepositoryShould {
 
     }
 
+    @Test
+    void returnEmpty_when_overflowPageOffset() {
+
+        assertThat(repository.search(null, null, Page.of(1000, 10)).getContacts()).isEmpty();
+        assertThat(repository.search(null, null, Page.of(10, 1000)).getContacts()).isEmpty();
+
+    }
+
     private List<Contact> firstPageOfTenElements() {
         List<Contact> contacts = new LinkedList<>();
 

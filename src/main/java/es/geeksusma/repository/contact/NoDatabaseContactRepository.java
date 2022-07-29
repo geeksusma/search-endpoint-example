@@ -57,6 +57,9 @@ public class NoDatabaseContactRepository implements ContactsRepository {
         if (page.getStartPosition() < 0) {
             return;
         }
+        if (page.getStartPosition() > collectedContacts.size()) {
+            return;
+        }
         int position = calculateStartPosition(page, collectedContacts, maxOffset);
 
         for (; currentOffset < maxOffset; currentOffset++) {
@@ -74,7 +77,7 @@ public class NoDatabaseContactRepository implements ContactsRepository {
     }
 
     private int calculateMaxOffset(int requestedOffset, int hits) {
-        return hits >= requestedOffset ? requestedOffset : hits;
+        return Math.min(hits, requestedOffset);
     }
 
     private Stream<Contact> filteredStream(String name, String phone, List<Contact> contacts) {
