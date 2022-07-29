@@ -3,7 +3,6 @@ package es.geeksusma.api.contact;
 import es.geeksusma.domain.contact.Contacts;
 import es.geeksusma.domain.contact.Page;
 import es.geeksusma.domain.contact.SearchContacts;
-import es.geeksusma.domain.contact.SearchContactsComponent;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -23,9 +22,9 @@ public class SearchContactsController {
     private final SearchContacts searchContacts;
     private final ContactToDTOMapper mapper;
 
-    public SearchContactsController() {
-        this.searchContacts = new SearchContactsComponent();
-        this.mapper = new ContactToDTOMapper();
+    public SearchContactsController(SearchContacts searchContacts, ContactToDTOMapper mapper) {
+        this.searchContacts = searchContacts;
+        this.mapper = mapper;
     }
 
     @Operation(summary = "Retrieves employees according to their role")

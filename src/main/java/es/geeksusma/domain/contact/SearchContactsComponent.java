@@ -1,13 +1,11 @@
 package es.geeksusma.domain.contact;
 
-import es.geeksusma.repository.contact.NoDatabaseContactRepository;
-
 public class SearchContactsComponent implements SearchContacts {
 
     private final ContactsRepository contactsRepository;
 
-    public SearchContactsComponent() {
-        contactsRepository = new NoDatabaseContactRepository();
+    public SearchContactsComponent(ContactsRepository contactsRepository) {
+        this.contactsRepository = contactsRepository;
     }
 
     @Override
