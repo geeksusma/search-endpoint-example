@@ -57,10 +57,20 @@ public class NoDatabaseContactRepository implements ContactsRepository {
         if (page.getStartPosition() < 0) {
             return;
         }
-        for (int position = page.getStartPosition(); currentOffset < maxOffset; currentOffset++) {
+        int position = calculateStartPosition(page, collectedContacts, maxOffset);
+
+        for (; currentOffset < maxOffset; currentOffset++) {
             filteredContacts.add(collectedContacts.get(position));
             position++;
         }
+    }
+
+    private int calculateStartPosition(Page page, List<Contact> collectedContacts, int maxOffset) {
+        int position = page.getStartPosition();
+        if (collectedContacts.size() == maxOffset) {
+            position = 0;
+        }
+        return position;
     }
 
     private int calculateMaxOffset(Integer requestedOffset, int hits) {
