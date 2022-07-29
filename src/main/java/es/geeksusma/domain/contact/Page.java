@@ -11,11 +11,16 @@ public class Page {
     }
 
     public static Page of(Integer number, Integer offset) {
-        return new Page(number, offset);
+        int validNumber = number != null ? number : 0;
+        int validOffset = offset != null ? offset : 0;
+
+        return
+                new Page(validNumber, validOffset);
     }
 
     public int getStartPosition() {
         return this.number == 1 ? 0 : (this.number - 1) * this.offset;
 
     }
+
 }

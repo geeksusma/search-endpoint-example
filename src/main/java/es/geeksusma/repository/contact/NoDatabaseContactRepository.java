@@ -73,7 +73,7 @@ public class NoDatabaseContactRepository implements ContactsRepository {
         return position;
     }
 
-    private int calculateMaxOffset(Integer requestedOffset, int hits) {
+    private int calculateMaxOffset(int requestedOffset, int hits) {
         return hits >= requestedOffset ? requestedOffset : hits;
     }
 
