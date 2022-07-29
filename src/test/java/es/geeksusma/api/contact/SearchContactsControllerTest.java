@@ -40,7 +40,7 @@ class SearchContactsControllerTest {
 
         ContactsDTO expectedResponse = expectedPage();
 
-        requestHelper.checkGetForSingleObject("/v1/contacts/filters?name=Joao&phone=351-1&page=2&offset=5", objectMapper.writeValueAsString(expectedResponse));
+        requestHelper.checkGetForSingleObject("/v1/contacts/search?name=Joao&phone=351-1&page=2&offset=5", objectMapper.writeValueAsString(expectedResponse));
     }
 
     private ContactsDTO expectedPage() {

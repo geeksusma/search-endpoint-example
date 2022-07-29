@@ -35,7 +35,7 @@ public class SearchContactsController {
                             description = "Request was succeeded",
                             content = {@Content(mediaType = "application/json")})
             })
-    @GetMapping("/contacts/filters")
+    @GetMapping("/contacts/search")
     ResponseEntity<ContactsDTO> searchByPage(@ModelAttribute final ContactFiltersDTO filters, @ModelAttribute PageRequest page) {
 
         int total = searchContacts.count(filters.getName(), filters.getPhone());
